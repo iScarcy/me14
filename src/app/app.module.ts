@@ -9,6 +9,7 @@ import { MaterialModule } from './shared/material.module';
 import { ToolbarComponent } from './components/layout/toolbar/toolbar.component';
 import { SidenavComponent } from './components/layout/sidenav/sidenav.component';
 import { MainComponentComponent } from './components/layout/main-component/main-component.component';
+import { MenuComponent } from './components/layout/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MainComponentComponent } from './components/layout/main-component/main-
     FooterComponent,
     ToolbarComponent,
     SidenavComponent,
-    MainComponentComponent
+    MainComponentComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

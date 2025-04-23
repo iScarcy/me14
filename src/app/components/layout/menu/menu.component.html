@@ -1,0 +1,18 @@
+<button mat-button [matMenuTriggerFor]="doc">Utilit&agrave;</button>
+<mat-menu #doc="matMenu">
+  <button mat-menu-item>Modulistica</button>
+  <button mat-menu-item>Tecniche</button>
+  <button mat-menu-item>Carte di Clan</button>
+  <button mat-menu-item>Mani abili</button>
+  <button mat-menu-item>Pr. Educativi</button>
+  <button mat-menu-item>Canzoni</button>
+</mat-menu>
+<button mat-button>Notizie</button>
+<button mat-button>Video</button>
+<button mat-button [matMenuTriggerFor]="menu">Gallery</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Foto L/C</button>
+  <button mat-menu-item>Foto E/G</button>
+  <button mat-menu-item>Foto R/S</button>
+  <button mat-menu-item>Foto Gruppo</button>
+</mat-menu>
