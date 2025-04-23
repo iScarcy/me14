@@ -32,6 +32,5 @@ export class SidenavComponent implements OnInit{
         map(result => result.matches)
       );
 
-      console.log(this.isHandset$);
   }
 }

@@ -4,15 +4,47 @@
               
                 [ngClass]="(isHandset$ | async) ? 'app-sidenav mat-elevation-z10':'hidden'">
                 <mat-toolbar color="primary">
-                  Eventi
+                  <span>Messina 14</span>
                 </mat-toolbar>
-                <app-menu/>
+              
             
                 
     </mat-drawer>
     <mat-drawer-content  class="app-sidenav-content">
-      <app-toolbar (toogleSidenav)="drawer.toggle()">
-      </app-toolbar>
+      
+      <mat-toolbar color="primary">
+        <span>Messina 14</span>
+        <span class="example-spacer"></span>
+        <button mat-button class="app-sidenav-toogle" (click)="drawer.toggle()" *ngIf="(isHandset$ |async)">
+            <mat-icon>menu</mat-icon>
+        </button>
+        
+        <div *ngIf="!(isHandset$ |async)">
+           
+            <button mat-button>Branche</button>
+            <button mat-button>Co.Ca.</button>
+            <button mat-button [matMenuTriggerFor]="doc">Utilit&agrave;</button>
+            <mat-menu #doc="matMenu">
+              <button mat-menu-item>Modulistica</button>
+              <button mat-menu-item>Tecniche</button>
+              <button mat-menu-item>Carte di Clan</button>
+              <button mat-menu-item>Mani abili</button>
+              <button mat-menu-item>Pr. Educativi</button>
+              <button mat-menu-item>Canzoni</button>
+            </mat-menu>
+            <button mat-button>Notizie</button>
+            <button mat-button>Video</button>
+            <button mat-button [matMenuTriggerFor]="menu">Gallery</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Foto L/C</button>
+              <button mat-menu-item>Foto E/G</button>
+              <button mat-menu-item>Foto R/S</button>
+              <button mat-menu-item>Foto Gruppo</button>
+            </mat-menu>
+        </div>
+      </mat-toolbar>
+ 
+
       <div class="wrapper">
           <router-outlet></router-outlet>
       </div>

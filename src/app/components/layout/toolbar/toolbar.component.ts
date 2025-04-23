@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,10 +12,9 @@ export class ToolbarComponent implements OnInit{
   @Output() toogleSidenav = new EventEmitter<void>();
 
   constructor( ){}
-
-  
+ 
   ngOnInit(): void {
-    
+     
   }
 
 }
