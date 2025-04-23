@@ -7,24 +7,23 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { MaterialModule } from './shared/material.module';
 import { ToolbarComponent } from './components/layout/toolbar/toolbar.component';
-import { SidenavComponent } from './components/layout/sidenav/sidenav.component';
-import { MainComponentComponent } from './components/layout/main-component/main-component.component';
-import { MenuComponent } from './components/layout/menu/menu.component';
-
+import { SidenavComponent } from './components/layout/sidenav/sidenav.component';  
+import { MainContentComponent } from './components/layout/main-content/main-content.component';
+import { MatCarouselModule } from 'ng-mat-carousel';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     ToolbarComponent,
-    SidenavComponent,
-    MainComponentComponent,
-    MenuComponent
+    SidenavComponent,  
+    MainContentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

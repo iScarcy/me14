@@ -14,10 +14,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {LayoutModule} from '@angular/cdk/layout';
+
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+   
   ],
   exports:[
     LayoutModule,
@@ -32,6 +34,7 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatSelectModule,
     MatButtonModule,
     MatSidenavModule,
+    
     
   ]
 })
