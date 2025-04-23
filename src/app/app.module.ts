@@ -7,13 +7,17 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { MaterialModule } from './shared/material.module';
 import { ToolbarComponent } from './components/layout/toolbar/toolbar.component';
+import { SidenavComponent } from './components/layout/sidenav/sidenav.component';
+import { MainComponentComponent } from './components/layout/main-component/main-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    SidenavComponent,
+    MainComponentComponent
   ],
   imports: [
     BrowserModule,

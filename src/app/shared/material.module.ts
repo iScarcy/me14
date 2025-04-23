@@ -12,13 +12,16 @@ import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
  
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
- 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {LayoutModule} from '@angular/cdk/layout';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ],
   exports:[
+    LayoutModule,
+    MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
@@ -28,6 +31,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatDialogModule,
     MatSelectModule,
     MatButtonModule,
+    MatSidenavModule,
     
   ]
 })

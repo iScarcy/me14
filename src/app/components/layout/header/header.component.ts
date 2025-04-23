@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  public onToggleSidenav = () => { 
+   // this.sidenavToggle.emit();
+  }
+
 }
