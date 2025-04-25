@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/layout/header/header.component';
-import { FooterComponent } from './components/layout/footer/footer.component';
 import { MaterialModule } from './shared/material.module';
 import { ToolbarComponent } from './components/layout/toolbar/toolbar.component';
 import { SidenavComponent } from './components/layout/sidenav/sidenav.component';  
@@ -13,8 +11,6 @@ import { MatCarouselModule } from 'ng-mat-carousel';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     ToolbarComponent,
     SidenavComponent,  
     MainContentComponent
