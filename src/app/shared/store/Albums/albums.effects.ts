@@ -1,7 +1,7 @@
  
 import { LOAD_ALBUM_FOTO, LOAD_ALBUMS, loadalbumfotosuccess, loadalbums, loadalbumssuccess } from "./albums.actions";
 import { exhaustMap, map, merge, mergeAll, mergeMap } from "rxjs";
-import { Injectable } from "@angular/core";
+import { inject, Inject, Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { IGetAlbumFotoRequestModel, IGetAlbumsStoreRequest } from "./albums.model";
 import { IAlbumFoto } from "../../../models/IAlbumFoto";
@@ -11,7 +11,12 @@ import { GalleryService } from "../../../services/gallery.service";
 
 @Injectable()
 export class AlbumEffects {
+  
+  private action$ = inject(Actions)
+  
+  
   effects$ = createEffect(() =>
+    
     this.action$.pipe(
       ofType(LOAD_ALBUMS),
       exhaustMap((action:IGetAlbumsStoreRequest) => {
@@ -27,7 +32,7 @@ export class AlbumEffects {
   );
  
 
- 
+
 
   effectsFoto$ = createEffect(() =>
     this.action$.pipe(
@@ -57,7 +62,6 @@ export class AlbumEffects {
  
   
   constructor(
-    private action$: Actions,
     private galleryService: GalleryService   
   ) {}
 }

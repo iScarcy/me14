@@ -9,7 +9,7 @@ import { IAlbumFoto } from '../models/IAlbumFoto';
 })
 export class GalleryService {
 
-  constructor(private httpEvents: HttpClient) { }
+  constructor(private _httpEvents: HttpClient) { }
 
   getAlbums(branca: string , anno: string , token: string):Observable<IAlbumFoto[]>{
   
@@ -20,7 +20,7 @@ export class GalleryService {
   
      var url: string = baseGalleryApiUrl+"album/"+branca+"/"+anno;
     
-      return this.httpEvents.get<Array<IAlbumFoto>>(url, {headers:headers}).pipe(
+      return this._httpEvents.get<Array<IAlbumFoto>>(url, {headers:headers}).pipe(
         map(albums => albums.map(album => ({
           id: album.id,
           title: album.title,
@@ -42,7 +42,7 @@ export class GalleryService {
    
 
     var url: string = baseGalleryApiUrl+"album/photo/"+idAlbum;
-    return this.httpEvents.get<IAlbumFoto>(url, {headers:headers}).pipe(
+    return this._httpEvents.get<IAlbumFoto>(url, {headers:headers}).pipe(
       map(album => ({
         id: album.id,
         title: album.title,

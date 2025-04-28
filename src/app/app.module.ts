@@ -1,6 +1,6 @@
 import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material.module';
@@ -14,7 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AlbumEffects } from './shared/store/Albums/albums.effects';
 import { LoginEffects } from './shared/store/Login/login.effects';
 import { httpInterceptor } from './services/httpInterceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { IAppStateModel } from './shared/store/Global/App.state';
 import { localStorageSync, rehydrateApplicationState } from 'ngrx-store-localstorage';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -24,9 +24,9 @@ const INIT_ACTION = "@ngrx/store/init";
 export function localStorageSyncReducer(reducer: ActionReducer<IAppStateModel>): ActionReducer<IAppStateModel> {
   return function(state, action : any) {
     
- debugger;
+ 
     const keys = ['login','lastUpdate'];
-    debugger;
+    
     let clearErrOnIinit : boolean = false;
     if (action.type === INIT_ACTION){
      
@@ -35,6 +35,9 @@ export function localStorageSyncReducer(reducer: ActionReducer<IAppStateModel>):
      
       if(rehydratedState.login != null && rehydratedState.login.login.token=="err")
         clearErrOnIinit = true;
+
+      if(rehydratedState.login == null ||  rehydratedState.login !== "")
+        console.log("login")
     }
  
     let xapp = localStorageSync({
@@ -62,17 +65,24 @@ export const metaReducers: MetaReducer<IAppStateModel, any>[] = [localStorageSyn
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
+    
+   
     StoreModule.forRoot(AppState, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([AlbumEffects, LoginEffects])
     
   ],
   providers: [
+    provideHttpClient(),
     {provide: HTTP_INTERCEPTORS, useClass: httpInterceptor, multi: true},
   
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  
+}

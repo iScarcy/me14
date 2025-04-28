@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AppStateModel } from './shared/store/Global/App.state';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  constructor(){}
+
   title = 'me14';
-  name = 'Angular 6';
+ 
 }

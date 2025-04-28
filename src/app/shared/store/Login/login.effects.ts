@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { LOGIN_USER, loginusersuccess, LOGOUT_USER, logoutusersuccess } from "./login.actions";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
  
@@ -12,7 +12,11 @@ import { LocalStorageService } from "../../../services/local-storage.service";
 
 @Injectable()
 export class LoginEffects {
-     effects$ = createEffect(() =>
+  
+  private action$ = inject(Actions)
+  
+
+   effects$ = createEffect(() =>
         this.action$.pipe(
           ofType(LOGIN_USER),
           exhaustMap((request: ILoginRequest) => {
@@ -61,9 +65,8 @@ export class LoginEffects {
           })
         )
       );
-
+ 
        constructor(
-            private action$: Actions,
             private service: AuthService,
             private localStorage: LocalStorageService   
         ) {}
