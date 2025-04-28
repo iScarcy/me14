@@ -7,7 +7,7 @@ import { ILoginRequest } from "./login.model";
  
 import { HttpErrorResponse } from "@angular/common/http";
 import { ILogin } from "../../../models/ILogin";
-import { LoginService } from "../../../services/login.service";
+import { AuthService } from "../../../services/auth.service";
 import { LocalStorageService } from "../../../services/local-storage.service";
 
 @Injectable()
@@ -64,7 +64,7 @@ export class LoginEffects {
 
        constructor(
             private action$: Actions,
-            private service: LoginService,
+            private service: AuthService,
             private localStorage: LocalStorageService   
         ) {}
 }

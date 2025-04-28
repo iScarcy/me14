@@ -26,7 +26,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<IAppStateModel>):
     
  debugger;
     const keys = ['login','lastUpdate'];
-
+    debugger;
     let clearErrOnIinit : boolean = false;
     if (action.type === INIT_ACTION){
      

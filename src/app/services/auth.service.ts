@@ -8,7 +8,7 @@ import * as CryptoJS from 'crypto-js';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthService {
 
   key:string =  "abcdefghijklmnop";
 
