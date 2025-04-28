@@ -7,7 +7,7 @@ import { MaterialModule } from './shared/material.module';
 import { ToolbarComponent } from './components/layout/toolbar/toolbar.component';
 import { SidenavComponent } from './components/layout/sidenav/sidenav.component';  
 import { MainContentComponent } from './components/layout/main-content/main-content.component';
-import { MatCarouselModule } from 'ng-mat-carousel';
+
 import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { AppState } from './shared/store/Global/AppState.model';
 import { EffectsModule } from '@ngrx/effects';
@@ -18,6 +18,9 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient } fr
 import { IAppStateModel } from './shared/store/Global/App.state';
 import { localStorageSync, rehydrateApplicationState } from 'ngrx-store-localstorage';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AlbumsComponent } from './components/albums/albums.component';
+import { AlbumComponent } from './components/albums/album/album.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const INIT_ACTION = "@ngrx/store/init";
 
@@ -61,15 +64,15 @@ export const metaReducers: MetaReducer<IAppStateModel, any>[] = [localStorageSyn
     AppComponent,
     ToolbarComponent,
     SidenavComponent,  
-    MainContentComponent
+    MainContentComponent, AlbumsComponent, AlbumComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
-    
-   
+    ReactiveFormsModule, 
+    FormsModule, 
     StoreModule.forRoot(AppState, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([AlbumEffects, LoginEffects])

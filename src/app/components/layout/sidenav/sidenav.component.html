@@ -36,7 +36,7 @@
             <button mat-button>Video</button>
             <button mat-button [matMenuTriggerFor]="menu">Gallery</button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item>Foto L/C</button>
+              <button mat-menu-item [routerLink]="['/gallery/lc']">Foto L/C</button>
               <button mat-menu-item>Foto E/G</button>
               <button mat-menu-item>Foto R/S</button>
               <button mat-menu-item>Foto Gruppo</button>

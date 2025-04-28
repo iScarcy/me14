@@ -1,5 +1,5 @@
 import { inject, Injectable } from "@angular/core";
-import { LOGIN_USER, loginusersuccess, LOGOUT_USER, logoutusersuccess } from "./login.actions";
+import { LOGIN_USER, loginusersuccess, REFRESH_TOKEN } from "./login.actions";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
  
 import { map, exhaustMap, catchError, throwError } from "rxjs";
@@ -9,6 +9,7 @@ import { HttpErrorResponse } from "@angular/common/http";
 import { ILogin } from "../../../models/ILogin";
 import { AuthService } from "../../../services/auth.service";
 import { LocalStorageService } from "../../../services/local-storage.service";
+import { domain_user, secret_id } from "../../../app.constant";
 
 @Injectable()
 export class LoginEffects {
@@ -44,23 +45,26 @@ export class LoginEffects {
   
       effectsOut$ = createEffect(() =>
         this.action$.pipe(
-          ofType(LOGOUT_USER),
-          exhaustMap((request: ILoginRequest) => {
-         
-            return this.service.logoutuser(request.username).pipe(
+          ofType(REFRESH_TOKEN),
+          exhaustMap(() => {
+            
+               
+            return this.service.refresh_token(domain_user, secret_id).pipe(
+              
               map((resp) => {
+               
                 let info:ILogin = {
-                  displayName: "",
-                  token: "",
-                  tokenExpireDate: new Date(),
-                  role: ""
+                  displayName: resp.name,
+                  token: resp.token,
+                  tokenExpireDate: resp.expire,
+                  role: resp.role
                 }
-                this.localStorage.remove("login");
+                this.localStorage.set("login",JSON.stringify(info));
                 
                 this.localStorage.set("lastUpdate", new Date());
-                return logoutusersuccess({data:info});
+                return loginusersuccess({data:info});
                
-              })
+              }) 
             );
           })
         )

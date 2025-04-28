@@ -14,7 +14,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {LayoutModule} from '@angular/cdk/layout';
-
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [],
   imports: [
@@ -34,8 +35,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatSelectModule,
     MatButtonModule,
     MatSidenavModule,
-    
-    
+    MatFormFieldModule,
+    MatInputModule,
   ]
 })
 export class MaterialModule { }

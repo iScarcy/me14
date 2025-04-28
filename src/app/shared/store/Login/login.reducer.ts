@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { initialState } from "./login.state";
-import { loginuserfaild, loginusersuccess, logoutusersuccess } from "./login.actions";
+import { loginuserfaild, loginusersuccess,} from "./login.actions";
 
 const _loginReducer = createReducer(
     initialState,
@@ -19,17 +19,6 @@ const _loginReducer = createReducer(
                 tokenExpireDate:null,
                 role:""
             }  
-        }
-    }),
-    on(logoutusersuccess, (state, action)=>{
-        
-        return {
-           login: {
-                    displayName:"",
-                    token: "",   
-                    tokenExpireDate:null,
-                    role:""
-                }   
         }
     })
 )

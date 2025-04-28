@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { AppStateModel } from "../Global/App.state";
-import { IAlbumFoto } from "src/app/models/IAlbumFoto";
+ 
 
 const getalbumsstate = createFeatureSelector<AppStateModel>("albums");
 
