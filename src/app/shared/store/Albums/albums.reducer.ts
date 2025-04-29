@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import {  loadalbumfotosuccess, loadalbumssuccess } from "./albums.actions";
+import {  loadalbumfotosuccess, loadalbumssuccess, loadlastalbumssuccess } from "./albums.actions";
 import { initialState } from "./albums.state";
 import { IAlbumFoto } from "../../../models/IAlbumFoto";
 import { IFoto } from "../../../models/IFoto";
@@ -10,10 +10,18 @@ const _albumsReducer = createReducer(
     on(loadalbumssuccess, (state,action)=>{
        
         return {
-            albums: action.albums
+            albums: action.albums,
+            lastAlbums: state.lastAlbums
         }
     }),
- 
+    
+    on(loadlastalbumssuccess, (state,action)=>{
+       
+        return {
+            albums: state.albums,
+            lastAlbums: action.lastalbums
+        }
+    }),
   
     on(loadalbumfotosuccess, (state,action)=>{
       
@@ -44,7 +52,8 @@ const _albumsReducer = createReducer(
         albumsFoto[index] = album;
                 
         return {
-            albums: albumsFoto
+            albums: albumsFoto,
+            lastAlbums: state.lastAlbums
         }
     }),
 

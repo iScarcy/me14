@@ -32,6 +32,30 @@ export class GalleryService {
       );
     }
   
+   
+  
+    getLastAlbums(maxAlbum: number , token: string):Observable<IAlbumFoto[]>{
+  
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+  
+     var url: string = `${baseGalleryApiUrl}"album/last/{maxAlbum}`;
+    
+      return this._httpEvents.get<Array<IAlbumFoto>>(url, {headers:headers}).pipe(
+        map(albums => albums.map(album => ({
+          id: album.id,
+          title: album.title,
+          anno: album.anno,
+          branca: album.branca, 
+          imgFolderUrl:  baseGalleryPublicImageUrl + album.imgFolderUrl ,            
+          foto: []
+        })))
+      );
+    }
+  
+   
     
   getFoto(idAlbum:number , token: string):Observable<IAlbumFoto>{
     

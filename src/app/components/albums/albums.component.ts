@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppStateModel } from '../../shared/store/Global/App.state';
 import { selectToken } from '../../shared/store/Login/login.selectors';
-import { IGetAlbumsRequestModel } from '../../shared/store/Albums/albums.model';
 import { loadalbums } from '../../shared/store/Albums/albums.actions';
 import { Observable } from 'rxjs';
 import { IAlbumFoto } from '../../models/IAlbumFoto';

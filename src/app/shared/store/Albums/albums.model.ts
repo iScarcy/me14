@@ -2,7 +2,8 @@ import { IAlbumFoto } from "../../../models/IAlbumFoto"
 
  
 export interface IAlbumsModel{
-    albums:IAlbumFoto[]
+    albums:IAlbumFoto[],
+    lastAlbums:IAlbumFoto[]
 }
 
 export interface IStoreModel{
@@ -12,12 +13,12 @@ export interface IStoreModel{
 
 /*ALBUM*/ 
 
-export interface IGetAlbumsRequestModel{
-    branca:string
-}
-
 export interface IGetAlbumsStoreRequest extends IStoreRequest{
     branca:string, anno:string, token:string
+}
+
+export interface IGetLastAlbumsStoreRequest extends IStoreRequest{
+    maxNumber:number, token:string
 }
 
  

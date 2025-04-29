@@ -1,14 +1,12 @@
  
-import { LOAD_ALBUM_FOTO, LOAD_ALBUMS, loadalbumfotosuccess, loadalbums, loadalbumssuccess } from "./albums.actions";
+import { LOAD_ALBUM_FOTO, LOAD_ALBUMS, LOAD_LAST_ALBUMS, loadalbumfotosuccess, loadalbums, loadalbumssuccess, loadlastalbumssuccess } from "./albums.actions";
 import { exhaustMap, map, merge, mergeAll, mergeMap } from "rxjs";
 import { inject, Inject, Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { IGetAlbumFotoRequestModel, IGetAlbumsStoreRequest } from "./albums.model";
+import { IGetAlbumFotoRequestModel, IGetAlbumsStoreRequest, IGetLastAlbumsStoreRequest} from "./albums.model";
 import { IAlbumFoto } from "../../../models/IAlbumFoto";
 import { baseGalleryPublicImageUrl } from "../../../app.constant";
-import { GalleryService } from "../../../services/gallery.service";
- 
-
+import { GalleryService } from "../../../services/gallery.service"; 
 @Injectable()
 export class AlbumEffects {
   
@@ -31,7 +29,21 @@ export class AlbumEffects {
     )
   );
  
-
+  effectsLastAlbums$ = createEffect(() =>
+    
+    this.action$.pipe(
+      ofType(LOAD_LAST_ALBUMS),
+      exhaustMap((action:IGetLastAlbumsStoreRequest) => {
+        
+        return this.galleryService.getLastAlbums(action.maxNumber, action.token).pipe(
+          map((data) => {
+           
+            return loadlastalbumssuccess({ lastalbums : data });
+          })
+        );
+      })
+    )
+  );
 
 
   effectsFoto$ = createEffect(() =>
