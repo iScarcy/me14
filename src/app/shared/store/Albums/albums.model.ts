@@ -25,7 +25,8 @@ export interface IGetLastAlbumsStoreRequest extends IStoreRequest{
 //FOTO
 
 export interface IGetAlbumFotoRequestModel  extends IStoreRequest{
-    idAlbum:number,
+    branca:string,
+    album:string,
     token:string
 }
 

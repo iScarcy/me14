@@ -37,7 +37,7 @@ export class AlbumEffects {
         
         return this.galleryService.getLastAlbums(action.maxAlbum, action.token).pipe(
           map((data) => {
-           debugger;
+           
             return loadlastalbumssuccess({ lastalbums : data });
           })
         );
@@ -51,7 +51,7 @@ export class AlbumEffects {
       ofType(LOAD_ALBUM_FOTO),
       exhaustMap((action: IGetAlbumFotoRequestModel) => {
         return this.galleryService
-          .getFoto(action.idAlbum, action.token) 
+          .getFoto(action.branca, action.album, action.token) 
           .pipe(
             map((album) => {
             
@@ -60,7 +60,7 @@ export class AlbumEffects {
                 title: album.title,
                 anno: album.anno,
                 branca: album.branca,
-             //   folder: album.folder,
+                folder: album.folder,
                 imgFolderUrl: baseGalleryPublicImageUrl + album.imgFolderUrl,
                 foto: album.foto
               }

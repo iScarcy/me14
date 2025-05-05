@@ -17,15 +17,15 @@ export class GalleryService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     })
-  
-     var url: string = baseGalleryApiUrl+"album/"+branca+"/"+anno;
-    
+   
+     var url: string = `${baseGalleryApiUrl}album/${branca}/${anno}`;
       return this._httpEvents.get<Array<IAlbumFoto>>(url, {headers:headers}).pipe(
         map(albums => albums.map(album => ({
           id: album.id,
           title: album.title,
           anno: album.anno,
           branca: album.branca, 
+          folder: album.folder,
           imgFolderUrl:  baseGalleryPublicImageUrl + album.imgFolderUrl ,            
           foto: []
         })))
@@ -49,6 +49,7 @@ export class GalleryService {
           title: album.title,
           anno: album.anno,
           branca: album.branca, 
+          folder: album.folder,
           imgFolderUrl:  baseGalleryPublicImageUrl + album.imgFolderUrl ,            
           foto: []
         })))
@@ -57,22 +58,22 @@ export class GalleryService {
   
    
     
-  getFoto(idAlbum:number , token: string):Observable<IAlbumFoto>{
+  getFoto(branca:string, album:string , token: string):Observable<IAlbumFoto>{
     
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     })
    
-
-    var url: string = baseGalleryApiUrl+"album/photo/"+idAlbum;
+ 
+    var url: string = `${baseGalleryApiUrl}album/${branca}/${album}/photo`;
     return this._httpEvents.get<IAlbumFoto>(url, {headers:headers}).pipe(
       map(album => ({
         id: album.id,
         title: album.title,
         anno: album.anno,
         branca: album.branca, 
-        folder: '',
+        folder: album.folder,
         imgFolderUrl: baseGalleryPublicImageUrl + album.imgFolderUrl,       
         foto: album.foto
       }))

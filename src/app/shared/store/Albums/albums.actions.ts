@@ -20,6 +20,6 @@ export const loadlastalbums=createAction(LOAD_LAST_ALBUMS, props<{maxAlbum:numbe
 export const loadlastalbumssuccess=createAction(LOAD_LAST_ALBUMS_SUCCESS, props<{lastalbums:IAlbumFoto[]}>());
 
 //IGetAlbumFotoRequestModel
-export const loadalbumfoto=createAction(LOAD_ALBUM_FOTO, props<{idAlbum:number, token:string}>())
+export const loadalbumfoto=createAction(LOAD_ALBUM_FOTO, props<{branca:string, album:string, token:string}>())
 export const loadalbumfotosuccess=createAction(LOAD_ALBUM_FOTO_SUCCESS, props<{album: IAlbumFoto}>())
 

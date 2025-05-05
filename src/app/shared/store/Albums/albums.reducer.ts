@@ -32,6 +32,7 @@ const _albumsReducer = createReducer(
            title: item.title,
            anno: item.anno,
            branca: item.branca,
+           folder: item.folder,
            imgFolderUrl: item.imgFolderUrl,
            foto: []
        } 
