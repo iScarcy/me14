@@ -12,6 +12,6 @@ export const getalbumslist = createSelector(getalbumsstate, (state) => {
  
 export const getalbum = (idAlbum:number) => createSelector(getalbumslist, (albums) => {
    
-    return albums.find(album => album.id == idAlbum);
+    return albums.find(album => album.id == idAlbum );
 })
  
