@@ -41,7 +41,7 @@ export class GalleryService {
       'Authorization': `Bearer ${token}`
     })
   
-     var url: string = `${baseGalleryApiUrl}"album/last/{maxAlbum}`;
+     var url: string = `${baseGalleryApiUrl}album/last/${maxAlbum}`;
     
       return this._httpEvents.get<Array<IAlbumFoto>>(url, {headers:headers}).pipe(
         map(albums => albums.map(album => ({
