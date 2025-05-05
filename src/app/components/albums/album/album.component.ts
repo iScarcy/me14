@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IAlbumFoto } from '../../../models/IAlbumFoto';
 
 @Component({
@@ -7,7 +7,7 @@ import { IAlbumFoto } from '../../../models/IAlbumFoto';
   templateUrl: './album.component.html',
   styleUrl: './album.component.css'
 })
-export class AlbumComponent {
+export class AlbumComponent implements OnInit {
 
   @Input() album:IAlbumFoto = {
     id: 0,
@@ -22,5 +22,13 @@ export class AlbumComponent {
   constructor(){
 
   }
+  
+  ngOnInit(): void {
+    console.log("_>"+this.album.title);
+  }
+
+ loadFotoAlbums(idAlbum:number){
+  console.log("_>"+idAlbum);
+ }
 
 }

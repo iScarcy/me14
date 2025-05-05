@@ -37,7 +37,7 @@ export class AlbumEffects {
         
         return this.galleryService.getLastAlbums(action.maxAlbum, action.token).pipe(
           map((data) => {
-           
+           debugger;
             return loadlastalbumssuccess({ lastalbums : data });
           })
         );
