@@ -19,12 +19,6 @@ export class FotoComponent  implements OnInit{
    
   }
   
-  @Input() foto: IFoto = {
-    id: 0,
-    albumID: 0,
-    file: '',
-    thumbPathFile: '',
-    fullPathFile: ''
-  }
+  @Input() foto: string | undefined;
 
 }
