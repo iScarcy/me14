@@ -14,4 +14,9 @@ export const getalbum = (idAlbum:number) => createSelector(getalbumslist, (album
    
     return albums.find(album => album.id == idAlbum );
 })
- 
+
+export const getalbumfoto = (albumfolder:string) => createSelector(getalbumslist, (albums) => {
+   
+    return albums.find(album => album.folder == albumfolder );
+})
+
