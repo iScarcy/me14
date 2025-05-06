@@ -7,6 +7,7 @@ import { selectToken } from '../../../shared/store/Login/login.selectors';
 import { loadalbumfoto } from '../../../shared/store/Albums/albums.actions';
 import { Observable } from 'rxjs';
 import { getalbumfoto } from '../../../shared/store/Albums/albums.selectors';
+import { IFoto } from '../../../models/IFoto';
 
 @Component({
   selector: 'app-album',
@@ -19,6 +20,7 @@ export class AlbumComponent implements OnInit {
   branca:string | null = "";
   album:string  | null = "";
   album$ = new Observable<IAlbumFoto | undefined> ();
+  foto$ = new Observable<IFoto | undefined> ();
   constructor(private _store: Store<AppStateModel>, private route: ActivatedRoute){}
   
   ngOnInit(): void {
