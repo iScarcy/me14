@@ -11,31 +11,8 @@ import { loadalbumfoto } from '../../../shared/store/Albums/albums.actions';
   templateUrl: './foto.component.html',
   styleUrl: './foto.component.css'
 })
-export class FotoComponent implements OnInit{
+export class FotoComponent {
   
-  branca:string | null = "";
-  album:string  | null = "";
 
-  constructor(private _store: Store<AppStateModel>, private route: ActivatedRoute){}
-  
-  ngOnInit(): void {
-   
-    this.branca = this.route.snapshot.paramMap.get('branca');
-    this.album = this.route.snapshot.paramMap.get('album');
-    if(this.branca != null && this.album != null){
-
-         this._store.select(selectToken).subscribe((data) =>{
-              
-        if(data){
-        
-          this._store.dispatch(loadalbumfoto({branca: this.branca!, album : this.album!, token:data}));
-            
-         // this.albums$ = this._store.select(getalbumslist);
-        } 
-  
-      }); 
-
-    }
-  }
 
 }

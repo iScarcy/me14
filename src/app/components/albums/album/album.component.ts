@@ -1,5 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IAlbumFoto } from '../../../models/IAlbumFoto';
+import { AppStateModel } from '../../../shared/store/Global/App.state';
+import { Store } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
+import { selectToken } from '../../../shared/store/Login/login.selectors';
+import { loadalbumfoto } from '../../../shared/store/Albums/albums.actions';
 
 @Component({
   selector: 'app-album',
@@ -9,26 +14,29 @@ import { IAlbumFoto } from '../../../models/IAlbumFoto';
 })
 export class AlbumComponent implements OnInit {
 
-  @Input() album:IAlbumFoto = {
-    id: 0,
-    title: '',
-    anno: 0,
-    branca: "",
-    imgFolderUrl: '',
-    foto: []
-  };
+  branca:string | null = "";
+  album:string  | null = "";
 
-  
-  constructor(){
-
-  }
+  constructor(private _store: Store<AppStateModel>, private route: ActivatedRoute){}
   
   ngOnInit(): void {
-    console.log("_>"+this.album.title);
-  }
+   
+    this.branca = this.route.snapshot.paramMap.get('branca');
+    this.album = this.route.snapshot.paramMap.get('album');
+    if(this.branca != null && this.album != null){
 
- loadFotoAlbums(idAlbum:number){
-  console.log("_>"+idAlbum);
- }
+         this._store.select(selectToken).subscribe((data) =>{
+              
+        if(data){
+        
+          this._store.dispatch(loadalbumfoto({branca: this.branca!, album : this.album!, token:data}));
+            
+         // this.albums$ = this._store.select(getalbumslist);
+        } 
+  
+      }); 
+
+    }
+  }
 
 }

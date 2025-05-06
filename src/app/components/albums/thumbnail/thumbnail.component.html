@@ -1,0 +1,16 @@
+
+<mat-card appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{album.title}}</mat-card-title>
+      <mat-card-subtitle>{{album.anno}}</mat-card-subtitle>
+    </mat-card-header>
+    <a [routerLink]="['/gallery/',album.branca,album.folder]"><img mat-card-image src="{{album.imgFolderUrl}}"></a>
+    
+    <mat-card-content>
+      <p>
+        {{album.title}}
+      </p>
+      
+    </mat-card-content>  
+  </mat-card>

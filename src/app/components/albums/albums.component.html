@@ -14,7 +14,6 @@
     </div>
     
     <div class="item"  *ngFor="let al of (this.albums$ | async)!">
-        <app-album [album]="(al)" />
-
+        <app-thumbnail [album]="(al)" />
     </div>
   </div>

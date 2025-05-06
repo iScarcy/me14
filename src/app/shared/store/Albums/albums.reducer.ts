@@ -25,6 +25,8 @@ const _albumsReducer = createReducer(
   
     on(loadalbumfotosuccess, (state,action)=>{
       
+        debugger;
+
        var albumsFoto = [...state.albums];
        var item =  albumsFoto.find(item => item.id == action.album.id)!;
        var album : IAlbumFoto = {

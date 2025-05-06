@@ -22,6 +22,7 @@ import { AlbumsComponent } from './components/albums/albums.component';
 import { AlbumComponent } from './components/albums/album/album.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FotoComponent } from './components/albums/foto/foto.component';
+import { ThumbnailComponent } from './components/albums/thumbnail/thumbnail.component';
 
 const INIT_ACTION = "@ngrx/store/init";
 
@@ -80,7 +81,7 @@ export const metaReducers: MetaReducer<IAppStateModel, any>[] = [localStorageSyn
     AppComponent,
     ToolbarComponent,
     SidenavComponent,  
-    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent
+    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent, ThumbnailComponent
   ],
   imports: [
     BrowserModule,
