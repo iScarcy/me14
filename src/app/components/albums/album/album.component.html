@@ -1,9 +1,9 @@
-<div class="container">
+ <div class="container">
     <div class="itemHead">
         <span>{{(this.album$ |async)?.title}}</span>
-        
-        
     </div>
     
-    
+    <div class="item"  *ngFor="let f of (this.album$ | async)?.foto">
+       <app-foto [foto]="(f)"/>
+    </div>
   </div>
