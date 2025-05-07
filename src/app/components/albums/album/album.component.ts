@@ -5,9 +5,11 @@ import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { selectToken } from '../../../shared/store/Login/login.selectors';
 import { loadalbumfoto } from '../../../shared/store/Albums/albums.actions';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { getalbumfoto } from '../../../shared/store/Albums/albums.selectors';
 import { IFoto } from '../../../models/IFoto';
+import { IAlbumLightboxData } from '../../../models/IAlbumLightboxData';
+ 
 
 @Component({
   selector: 'app-album',
@@ -20,7 +22,8 @@ export class AlbumComponent implements OnInit {
   branca:string | null = "";
   album:string  | null = "";
   album$ = new Observable<IAlbumFoto | undefined> ();
-  foto$ = new Observable<IFoto | undefined> ();
+  galleryData : IAlbumLightboxData[]  = [ ]
+  galleryDataNumElement:number | undefined = 0;
   constructor(private _store: Store<AppStateModel>, private route: ActivatedRoute){}
   
   ngOnInit(): void {
@@ -36,11 +39,34 @@ export class AlbumComponent implements OnInit {
           this._store.dispatch(loadalbumfoto({branca: this.branca!, album : this.album!, token:data}));
             
           this.album$ = this._store.select(getalbumfoto(this.album!));
+
+          this.album$.subscribe(
+            (data) => {
+              data?.foto.forEach((foto,index) => {
+                let item:IAlbumLightboxData = {
+                  id: foto.id,
+                  img: foto.fullPathFile,
+                  index: index
+                }           
+              
+                this.galleryData?.push(item);
+              })
+              this.galleryDataNumElement = data?.foto.length
+            }
+          )
+       
         } 
   
       }); 
 
     }
   }
+
+ clickFotoListener(id:number){
+  console.log("f_"+id);
+  console.log("image: " + this.galleryData.find(x => x.id == id)?.img)
+  console.log("gallery_data:"+this.galleryData);
+  console.log("galleryDataNumElement :"+this.galleryDataNumElement );
+}
 
 }

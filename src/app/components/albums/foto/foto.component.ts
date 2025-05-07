@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppStateModel } from '../../../shared/store/Global/App.state';
 import { Store } from '@ngrx/store';
@@ -20,5 +20,11 @@ export class FotoComponent  implements OnInit{
   }
   
   @Input() foto: string | undefined;
+  @Input() id: number | undefined
 
+  @Output() public fotoClickEmitter:EventEmitter<number> = new EventEmitter();
+  
+  fotoclick(){
+    this.fotoClickEmitter.emit(this.id);
+  }
 }

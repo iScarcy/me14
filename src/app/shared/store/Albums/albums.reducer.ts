@@ -25,35 +25,37 @@ const _albumsReducer = createReducer(
   
     on(loadalbumfotosuccess, (state,action)=>{
       
-        debugger;
-
        var albumsFoto = [...state.albums];
-       var item =  albumsFoto.find(item => item.id == action.album.id)!;
-       var album : IAlbumFoto = {
-           id: item.id,
-           title: item.title,
-           anno: item.anno,
-           branca: item.branca,
-           folder: item.folder,
-           imgFolderUrl: item.imgFolderUrl,
-           foto: []
-       } 
-       
-        action.album.foto.forEach(element => {
-            const ph:IFoto = {
-                id: element.id,
-                albumID: element.albumID,
-                file: element.file,
-                thumbPathFile: element.thumbPathFile +  "?t="+ Math.random() ,
-                fullPathFile: element.fullPathFile
-            }
-            
-            album.foto.push(ph);
-        }); 
-        let index = albumsFoto.indexOf(item)
+       if(albumsFoto.length>0){
+        var item =  albumsFoto.find(item => item.id == action.album.id)!;
+        var album : IAlbumFoto = {
+            id: item.id,
+            title: item.title,
+            anno: item.anno,
+            branca: item.branca,
+            folder: item.folder,
+            imgFolderUrl: item.imgFolderUrl,
+            foto: []
+        } 
         
-        albumsFoto[index] = album;
+            action.album.foto.forEach(element => {
+                const ph:IFoto = {
+                    id: element.id,
+                    albumID: element.albumID,
+                    file: element.file,
+                    thumbPathFile: element.thumbPathFile +  "?t="+ Math.random() ,
+                    fullPathFile: element.fullPathFile
+                }
                 
+                album.foto.push(ph);
+            }); 
+            let index = albumsFoto.indexOf(item)
+            
+            albumsFoto[index] = album;
+        }else{
+            albumsFoto.push(action.album)
+        }   
+
         return {
             albums: albumsFoto,
             lastAlbums: state.lastAlbums
