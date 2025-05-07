@@ -9,6 +9,9 @@ import { map, Observable } from 'rxjs';
 import { getalbumfoto } from '../../../shared/store/Albums/albums.selectors';
 import { IFoto } from '../../../models/IFoto';
 import { IAlbumLightboxData } from '../../../models/IAlbumLightboxData';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+
+import { AlbumLightboxComponent } from '../album-lightbox/album-lightbox.component';
  
 
 @Component({
@@ -24,7 +27,7 @@ export class AlbumComponent implements OnInit {
   album$ = new Observable<IAlbumFoto | undefined> ();
   galleryData : IAlbumLightboxData[]  = [ ]
   galleryDataNumElement:number | undefined = 0;
-  constructor(private _store: Store<AppStateModel>, private route: ActivatedRoute){}
+  constructor(private _store: Store<AppStateModel>, private route: ActivatedRoute, private _dialog: MatDialog){}
   
   ngOnInit(): void {
    
@@ -50,8 +53,7 @@ export class AlbumComponent implements OnInit {
                 }           
               
                 this.galleryData?.push(item);
-              })
-              this.galleryDataNumElement = data?.foto.length
+              }) 
             }
           )
        
@@ -63,10 +65,18 @@ export class AlbumComponent implements OnInit {
   }
 
  clickFotoListener(id:number){
-  console.log("f_"+id);
-  console.log("image: " + this.galleryData.find(x => x.id == id)?.img)
-  console.log("gallery_data:"+this.galleryData);
-  console.log("galleryDataNumElement :"+this.galleryDataNumElement );
+
+
+  let config: MatDialogConfig = {
+    panelClass: "dialog-responsive",
+    disableClose: false,
+  
+    data: {galleryData: this.galleryData, idFoto: id}
+    
+  }
+  
+  let dialogRed = this._dialog.open(AlbumLightboxComponent, config)
+
 }
 
 }
