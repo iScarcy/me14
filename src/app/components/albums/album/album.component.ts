@@ -70,9 +70,9 @@ export class AlbumComponent implements OnInit {
   let config: MatDialogConfig = {
     panelClass: "dialog-responsive",
     disableClose: false,
-  
-    data: {galleryData: this.galleryData, idFoto: id}
     
+    data: {galleryData: this.galleryData, idFoto: id},
+    height:"90%"
   }
   
   let dialogRed = this._dialog.open(AlbumLightboxComponent, config)
