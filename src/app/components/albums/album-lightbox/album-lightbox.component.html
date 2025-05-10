@@ -7,7 +7,7 @@
               <img src={{this.img}} class="responsive-image"/>
             </div>
         </mat-card-content>
-        <mat-card-actions>
+        <mat-card-actions class="justify-content">
           <button mat-button (click)="previous()" [disabled]="indexFoto==0"><mat-icon>skip_previous</mat-icon></button>
           <h4 mat-dialog-title>{{(indexFoto! + 1)}}/{{totFoto}}</h4>
           <button mat-button (click)="next()" [disabled]="indexFoto==totFoto-1"><mat-icon>skip_next</mat-icon></button>

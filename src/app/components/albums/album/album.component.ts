@@ -72,7 +72,7 @@ export class AlbumComponent implements OnInit {
     disableClose: false,
     
     data: {galleryData: this.galleryData, idFoto: id},
-    height:"90%"
+   
   }
   
   let dialogRed = this._dialog.open(AlbumLightboxComponent, config)
