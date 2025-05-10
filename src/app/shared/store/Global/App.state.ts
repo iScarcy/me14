@@ -7,11 +7,13 @@ import { ILoginModel } from "../Login/login.model";
 
 export interface AppStateModel{
     albums:IAlbumFoto[],
+    
     login:ILogin
 }
 
 export interface IAppStateModel{
     albums:IAlbumsModel,
+     
     login:ILoginModel
 }
 
