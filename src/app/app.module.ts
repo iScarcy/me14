@@ -25,6 +25,7 @@ import { FotoComponent } from './components/albums/foto/foto.component';
 import { ThumbnailComponent } from './components/albums/thumbnail/thumbnail.component';
 import { AlbumLightboxComponent } from './components/albums/album-lightbox/album-lightbox.component';
 import { ImageSliderComponent } from './components/image-slider/image-slider.component';
+import { ImageSliderModule } from './shared/image-slider.module';
 
 const INIT_ACTION = "@ngrx/store/init";
 
@@ -90,6 +91,7 @@ export const metaReducers: MetaReducer<IAppStateModel, any>[] = [localStorageSyn
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
+    ImageSliderModule,
     ReactiveFormsModule, 
     FormsModule, 
     StoreModule.forRoot(AppState, { metaReducers }),

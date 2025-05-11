@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ISlide } from '../../models/ISlide';
 
 @Component({
   selector: 'app-image-slider',
@@ -8,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class ImageSliderComponent {
 
+  @Input() slides: ISlide[] = [];
+
+  currentIndex: number = 1
+
+  getCurrentSlideUrl(): string {
+    if(this.slides.length>0){
+       
+        return `url('${this.slides[this.currentIndex].url}')`
+      }
+    else  
+      return '';
+  }
 }

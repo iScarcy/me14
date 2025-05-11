@@ -1,1 +1,7 @@
-<p>image-slider works!</p>
+<div class="slider">
+    <div>
+        <div class="leftArrow"><</div>
+        <div class="rightArrow">></div>
+    </div>
+    <div class="slide" [ngStyle]="{'background-image': getCurrentSlideUrl()}"></div>
+</div>
