@@ -34,14 +34,14 @@ export class GalleryService {
   
    
   
-    getLastAlbums(maxAlbum: number , token: string):Observable<IAlbumFoto[]>{
+    getLastAlbums(maxAlbum: number , branca: string, token: string):Observable<IAlbumFoto[]>{
   
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     })
   
-     var url: string = `${baseGalleryApiUrl}album/last/${maxAlbum}`;
+     var url: string = `${baseGalleryApiUrl}album/${branca}/last/${maxAlbum}`;
     
       return this._httpEvents.get<Array<IAlbumFoto>>(url, {headers:headers}).pipe(
         map(albums => albums.map(album => ({

@@ -35,7 +35,7 @@ export class AlbumEffects {
       ofType(LOAD_LAST_ALBUMS),
       exhaustMap((action:IGetLastAlbumsStoreRequest) => {
         
-        return this.galleryService.getLastAlbums(action.maxAlbum, action.token).pipe(
+        return this.galleryService.getLastAlbums(action.maxAlbum, action.branca, action.token).pipe(
           map((data) => {
            
             return loadlastalbumssuccess({ lastalbums : data });

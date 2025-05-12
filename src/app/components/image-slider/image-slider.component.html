@@ -1,7 +1,14 @@
-<div class="slider">
-    <div>
-        <div class="leftArrow"><</div>
-        <div class="rightArrow">></div>
-    </div>
-    <div class="slide" [ngStyle]="{'background-image': getCurrentSlideUrl()}"></div>
-</div>
+<ngb-carousel >
+	<ng-template ngbSlide *ngFor="let i of this.slides">
+		<div class="picsum-img-wrapper">
+			<img [src]="i.url" alt="Random first slide" style="width: 100%;" />
+		</div>
+		<div class="carousel-caption">
+			<h3>{{i.title}}</h3>
+			
+		</div>
+	</ng-template>
+	
+</ngb-carousel>
+
+ 

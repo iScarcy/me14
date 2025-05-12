@@ -25,15 +25,15 @@ export class MainContentComponent implements OnInit{
     
       this._store.select(selectToken).subscribe((data) =>{
           
-          this.getLastAlbums(data);
+          this.getLastAlbums("rs",data);
     
         }); 
     
   }
 
-  getLastAlbums(token:string){
+  getLastAlbums(branca:string, token:string){
 
-    this._store.dispatch(loadlastalbums({maxAlbum:5, token:token}));
+    this._store.dispatch(loadlastalbums({maxAlbum:5, branca: branca, token:token}));
 
      this.lastAlbums$ = this._store.select(getlastalbumslist);
 

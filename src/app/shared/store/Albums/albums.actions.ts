@@ -16,7 +16,7 @@ export const LOAD_ALBUM_FOTO_SUCCESS = '[Gallery page] load foto albums success'
 export const loadalbums=createAction(LOAD_ALBUMS, props<{branca:string, anno:string, token:string }>());
 export const loadalbumssuccess=createAction(LOAD_ALBUMS_SUCCESS, props<{albums:IAlbumFoto[]}>());
 
-export const loadlastalbums=createAction(LOAD_LAST_ALBUMS, props<{maxAlbum:number, token:string }>());
+export const loadlastalbums=createAction(LOAD_LAST_ALBUMS, props<{maxAlbum:number, branca: string, token:string }>());
 export const loadlastalbumssuccess=createAction(LOAD_LAST_ALBUMS_SUCCESS, props<{lastalbums:IAlbumFoto[]}>());
 
 //IGetAlbumFotoRequestModel

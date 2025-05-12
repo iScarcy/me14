@@ -18,7 +18,7 @@ export interface IGetAlbumsStoreRequest extends IStoreRequest{
 }
 
 export interface IGetLastAlbumsStoreRequest extends IStoreRequest{
-    maxAlbum:number, token:string
+    maxAlbum:number,  branca:string, token:string
 }
 
  

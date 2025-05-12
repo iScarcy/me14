@@ -11,14 +11,26 @@ export class ImageSliderComponent {
 
   @Input() slides: ISlide[] = [];
 
-  currentIndex: number = 1
+  currentIndex: number = 0
 
   getCurrentSlideUrl(): string {
     if(this.slides.length>0){
-       
+       console.log(this.slides[this.currentIndex].url)
         return `url('${this.slides[this.currentIndex].url}')`
       }
     else  
       return '';
+  }
+
+  goToPrev():void{
+    const isFirstSlide = this.currentIndex === 0;
+    const newIndex = isFirstSlide ? this.slides.length -1 : this.currentIndex - 1
+    this.currentIndex = newIndex;
+  }
+
+  goToNext():void{
+      const isLastSlide = this.currentIndex === this.slides.length -1;
+      const newIndex:number = isLastSlide ? 0 : this.currentIndex + 1;
+      this.currentIndex = newIndex;
   }
 }

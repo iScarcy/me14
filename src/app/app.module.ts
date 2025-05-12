@@ -26,6 +26,7 @@ import { ThumbnailComponent } from './components/albums/thumbnail/thumbnail.comp
 import { AlbumLightboxComponent } from './components/albums/album-lightbox/album-lightbox.component';
 import { ImageSliderComponent } from './components/image-slider/image-slider.component';
 import { ImageSliderModule } from './shared/image-slider.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const INIT_ACTION = "@ngrx/store/init";
 
@@ -96,7 +97,8 @@ export const metaReducers: MetaReducer<IAppStateModel, any>[] = [localStorageSyn
     FormsModule, 
     StoreModule.forRoot(AppState, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([AlbumEffects, LoginEffects])
+    EffectsModule.forRoot([AlbumEffects, LoginEffects]),
+    NgbModule
     
   ],
   providers: [
