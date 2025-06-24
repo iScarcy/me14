@@ -1,5 +1,6 @@
 export const baseGalleryApiUrl:string = "http://www.agescimessina14.org/fw/api/Gallery/";
 export const baseGalleryPublicImageUrl: string = "http://www.agescimessina14.org/public/gallery/"
+export const baseHomePagePublicImageUrl: string = "http://www.agescimessina14.org/public/fotoHP/"
 export const baseUsersApiUrl:string = "http://www.agescimessina14.org/fw/api/Users/";
 
 export const domain_user:string      = "messina14_webSite";

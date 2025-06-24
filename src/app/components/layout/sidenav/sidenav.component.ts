@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { ISlide } from '../../../models/ISlide';
+import { baseHomePagePublicImageUrl} from '../../../app.constant';
 
 @Component({
   selector: 'app-sidenav',
@@ -20,7 +22,7 @@ export class SidenavComponent implements OnInit{
   drawer!: MatDrawer;
 
   isHandset$: Observable<boolean> | undefined;
-
+ 
   ngOnInit(): void {
     
      this.router.events.subscribe(() =>{

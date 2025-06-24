@@ -8,6 +8,7 @@ import { ISlide } from '../../../models/ISlide';
 import { getalbumslist, getlastalbumslist } from '../../../shared/store/Albums/albums.selectors';
 import { map, Observable } from 'rxjs';
 import { IAlbumFoto } from '../../../models/IAlbumFoto';
+import { baseHomePagePublicImageUrl } from '../../../app.constant';
 
 @Component({
   selector: 'app-main-content',
@@ -17,7 +18,10 @@ import { IAlbumFoto } from '../../../models/IAlbumFoto';
 })
 export class MainContentComponent implements OnInit{
   
+ 
+  
   slideLastAlbums : ISlide[] = [];
+
   lastAlbums$ = new Observable<IAlbumFoto[]> ();
   constructor(private _store: Store<AppStateModel>){}
 
@@ -25,7 +29,7 @@ export class MainContentComponent implements OnInit{
     
       this._store.select(selectToken).subscribe((data) =>{
           
-          this.getLastAlbums("rs",data);
+          this.getLastAlbums("varie",data);
     
         }); 
     
