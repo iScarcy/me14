@@ -1,5 +1,19 @@
 <div class="container">
-   <div style="width: 500px;">
-      <app-image-slider [slides]="(slideLastAlbums)"></app-image-slider>
+   <div class="item-a">
+       <app-image-slider [slides]="(slideHomePage)"></app-image-slider>
    </div>
+   <div class="item-b"> 
+      <mat-card class="example-card" appearance="outlined">
+         <mat-card-header>
+            <mat-card-title>Ultime foto</mat-card-title>
+         </mat-card-header>
+         <mat-card-content>
+            <app-image-slider [slides]="(slideLastAlbums)"></app-image-slider>
+         </mat-card-content>
+         
+         </mat-card>
+      
+   </div>
+   <div class="item-c">social feed</div>
+   <div class="item-d">footer</div>
  </div>

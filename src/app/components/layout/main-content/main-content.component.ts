@@ -19,7 +19,22 @@ import { baseHomePagePublicImageUrl } from '../../../app.constant';
 export class MainContentComponent implements OnInit{
   
  
-  
+  slideHomePage : ISlide[] = [
+    {
+      url:baseHomePagePublicImageUrl + "1433258710_chiesa3.jpg",
+      title:"La nostra presenza sul territorio"
+    },
+    {
+      url:baseHomePagePublicImageUrl + "1433260541_g20.png",
+      title:""
+    } ,
+    {
+      url:baseHomePagePublicImageUrl + "1433260761_oneway.jpg",
+      title:""
+    }
+    
+
+  ]
   slideLastAlbums : ISlide[] = [];
 
   lastAlbums$ = new Observable<IAlbumFoto[]> ();
