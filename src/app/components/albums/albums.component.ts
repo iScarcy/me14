@@ -6,7 +6,7 @@ import { loadalbums } from '../../shared/store/Albums/albums.actions';
 import { Observable } from 'rxjs';
 import { IAlbumFoto } from '../../models/IAlbumFoto';
 import { getalbumslist } from '../../shared/store/Albums/albums.selectors';
-import { ActivatedRoute } from '@angular/router';
+import { NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 import { refreshtoken } from '../../shared/store/Login/login.actions';
 
 @Component({
@@ -22,15 +22,37 @@ export class AlbumsComponent implements OnInit {
   brancaSelected : string | null  = "";
   albums$ = new Observable<IAlbumFoto[]> ();
   
-  constructor(private _store: Store<AppStateModel>, private route: ActivatedRoute){}
+  constructor(private _store: Store<AppStateModel>, private _router: Router){
+    
+  }
+ 
   ngOnInit(): void {
    
-    this.brancaSelected = this.route.snapshot.paramMap.get('branca');
-    if(this.brancaSelected!=null && 
-      (this.brancaSelected=="lc" || this.brancaSelected=="eg" || this.brancaSelected=="rs" || this.brancaSelected=="varie")
-    ){
-      this.loadAlbums(this.brancaSelected);
-    }
+    this._router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        // Navigation is starting... show a loading spinner perhaps?
+        // blog on that here: ultimatecourses.com/blog/angular-loading-spinners-with-router-events
+        console.log("start_"+event)
+      }
+      if (event instanceof NavigationEnd) {
+        // We've finished navigating
+        
+          this.brancaSelected = event.url.replace("/gallery/","");
+          
+      
+          if(this.brancaSelected!=null && 
+            (this.brancaSelected=="lc" || this.brancaSelected=="eg" || this.brancaSelected=="rs" || this.brancaSelected=="varie")
+          ){
+            this.loadAlbums(this.brancaSelected);
+          }
+      }
+      if (event instanceof NavigationError) {
+        // something went wrong, log the error
+          console.log(event.error);
+      }
+    });
+
+   
     /*
     switch(branca){
       case "lc":  this.branca = "L/C";
