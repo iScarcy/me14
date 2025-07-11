@@ -13,7 +13,9 @@
     <mat-drawer-content  class="app-sidenav-content">
    
       <mat-toolbar color="primary">
-        <span><img src="assets/img/me14.png"></span>
+        <span>
+        <a [routerLink]="['']" > <img src="assets/img/me14.png"></a>
+        </span>
         <span class="example-spacer"></span>
         <button mat-button class="app-sidenav-toogle" (click)="drawer.toggle()" *ngIf="(isHandset$ |async)">
             <mat-icon>menu</mat-icon>
@@ -25,9 +27,12 @@
             <button mat-button>Co.Ca.</button>
             <button mat-button [matMenuTriggerFor]="doc">Utilit&agrave;</button>
             <mat-menu #doc="matMenu">
-              <button mat-menu-item>Modulistica</button>
-              <button mat-menu-item>Tecniche</button>
-              <button mat-menu-item>Carte di Clan</button>
+              <button mat-menu-item [routerLink]="['/utility/','modulistica']" >
+                Modulistica
+              </button>
+              
+              <button mat-menu-item [routerLink]="['/utility/','tecniche']">Tecniche</button>
+              <button mat-menu-item [routerLink]="['/utility/','carte di clan']">Carte di Clan</button>
               <button mat-menu-item>Mani abili</button>
               <button mat-menu-item>Pr. Educativi</button>
               <button mat-menu-item>Canzoni</button>

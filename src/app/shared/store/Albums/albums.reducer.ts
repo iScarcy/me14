@@ -8,7 +8,7 @@ const _albumsReducer = createReducer(
     initialState,
   
     on(loadalbumssuccess, (state,action)=>{
-       
+        
         return {
             albums: action.albums,
             lastAlbums: state.lastAlbums
@@ -24,7 +24,7 @@ const _albumsReducer = createReducer(
     }),
   
     on(loadalbumfotosuccess, (state,action)=>{
-      
+     
        var albumsFoto = [...state.albums];
        if(albumsFoto.length>0){
         var item =  albumsFoto.find(item => item.id == action.album.id)!;

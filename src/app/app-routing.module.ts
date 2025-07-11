@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainContentComponent } from './components/layout/main-content/main-content.component';
 import { AlbumsComponent } from './components/albums/albums.component';
 import { AlbumComponent } from './components/albums/album/album.component';
+import { UtilityComponent } from './components/utility/utility.component';
  
 const routes: Routes = [
   {path:"", component: MainContentComponent},
+  {path:"utility/:type", component: UtilityComponent},
   {path:"gallery/:branca", component: AlbumsComponent},
   {path:"gallery/:branca/:album", component: AlbumComponent},
 ];

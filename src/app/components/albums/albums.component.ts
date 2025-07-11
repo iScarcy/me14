@@ -27,31 +27,68 @@ export class AlbumsComponent implements OnInit {
   }
  
   ngOnInit(): void {
-   
-    this._router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        // Navigation is starting... show a loading spinner perhaps?
-        // blog on that here: ultimatecourses.com/blog/angular-loading-spinners-with-router-events
-        console.log("start_"+event)
-      }
-      if (event instanceof NavigationEnd) {
-        // We've finished navigating
-        
-          this.brancaSelected = event.url.replace("/gallery/","");
-          
+   console.log("onInit")
+   console.log("onInit albums")
+    
+     this.selectAlbums();
+
+     this._router.events.subscribe((event) => {
+
+      let branca:string = "";
       
-          if(this.brancaSelected!=null && 
+      
+      if (event instanceof NavigationStart) {
+        branca = event.url.replace("/gallery/","");
+        if(branca!="" && 
+            (branca=="lc" || branca=="eg" || branca=="rs" || branca=="varie")
+          ){
+            this.loadAlbums(branca);
+          }
+
+        
+        console.log("nav start:"+ branca);
+      }
+      else  if (event instanceof NavigationEnd) {
+        console.log("nav end:");
+        
+        
+        
+      }
+      else  if (event instanceof NavigationError) {
+        console.log("nav err:"+ branca);
+      }
+     });
+
+   /*this._router.events.subscribe((event) => {
+      console.log("onInit albums")
+         if(this.brancaSelected!=null && 
             (this.brancaSelected=="lc" || this.brancaSelected=="eg" || this.brancaSelected=="rs" || this.brancaSelected=="varie")
           ){
             this.loadAlbums(this.brancaSelected);
           }
+          
+      if (event instanceof NavigationStart) {
+        // Navigation is starting... show a loading spinner perhaps?
+        // blog on that here: ultimatecourses.com/blog/angular-loading-spinners-with-router-events
+           console.log("start_")
+           debugger;
+           this.brancaSelected = event.url.replace("/gallery/","");
+          
+      
+         
+      }
+      if (event instanceof NavigationEnd) {
+        // We've finished navigating
+         debugger;
+     
+         this.selectAlbums();
       }
       if (event instanceof NavigationError) {
         // something went wrong, log the error
           console.log(event.error);
       }
     });
-
+    */
    
     /*
     switch(branca){
@@ -98,18 +135,24 @@ export class AlbumsComponent implements OnInit {
   loadAlbums(branca:string){
    
     this._store.select(selectToken).subscribe((data) =>{
-      
+   
       if(data){
-      
+           console.log("load data")
         this._store.dispatch(loadalbums({branca: branca, anno: "0", token:data}));
          
-        this.albums$ = this._store.select(getalbumslist);
+         
+       
       }else{
+        console.log("refreshtoken")
         this._store.dispatch(refreshtoken())
       }
 
     }); 
 
+  }
+
+  selectAlbums(){
+     this.albums$ = this._store.select(getalbumslist);
   }
 
   

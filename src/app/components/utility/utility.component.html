@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="itemHead">
+        <h2>Utilità</h2>      
+     </div>   
+     <div  *ngFor="let uti of this.utility" class="item" >
+
+       <app-utility-item [item]="uti"/>
+    </div>
+</div> 

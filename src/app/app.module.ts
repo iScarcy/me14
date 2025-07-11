@@ -27,6 +27,8 @@ import { AlbumLightboxComponent } from './components/albums/album-lightbox/album
 import { ImageSliderComponent } from './components/image-slider/image-slider.component';
 import { ImageSliderModule } from './shared/image-slider.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UtilityComponent } from './components/utility/utility.component';
+import { UtilityItemComponent } from './components/utility/utility-item/utility-item.component';
 
 const INIT_ACTION = "@ngrx/store/init";
 
@@ -85,7 +87,7 @@ export const metaReducers: MetaReducer<IAppStateModel, any>[] = [localStorageSyn
     AppComponent,
     ToolbarComponent,
     SidenavComponent,  
-    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent, ThumbnailComponent, AlbumLightboxComponent, ImageSliderComponent
+    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent, ThumbnailComponent, AlbumLightboxComponent, ImageSliderComponent, UtilityComponent, UtilityItemComponent
   ],
   imports: [
     BrowserModule,

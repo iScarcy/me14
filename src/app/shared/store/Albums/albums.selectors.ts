@@ -7,7 +7,7 @@ const getalbumsstate = createFeatureSelector<IAlbumsModel>("albums");
 
  
 export const getalbumslist = createSelector(getalbumsstate, (state) => {
-    
+     
     return state.albums;
 })
 
