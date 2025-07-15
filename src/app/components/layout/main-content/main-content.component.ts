@@ -18,6 +18,7 @@ import { baseHomePagePublicImageUrl } from '../../../app.constant';
 })
 export class MainContentComponent implements OnInit{
   
+  
  
   slideHomePage : ISlide[] = [
     {
