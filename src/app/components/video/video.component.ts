@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { VideoService } from '../../services/video.service';
+import { YoutubeSearchListResponse } from '../../models/video/YoutubeSearchListResponse';
 
 @Component({
   selector: 'app-video',
@@ -9,17 +10,16 @@ import { VideoService } from '../../services/video.service';
 })
 export class VideoComponent {
 
-   videos: string[] = [];
+   response: YoutubeSearchListResponse | undefined;
 
   constructor(private service: VideoService) {}
 
   ngOnInit() {
-    this.service.getLatestVideos().subscribe((data: any) => {
-      this.videos = data.items
-        .filter((item: any) => item.id.kind === 'youtube#video')
-        .map((item: any) => item.id.videoId);
+    this.service.getVideos().subscribe((data: YoutubeSearchListResponse) => {
+      data
+      this.response = data;
     });
-    debugger;
+ 
   }
 
   getEmbedUrl(videoId: string) {

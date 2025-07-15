@@ -2,8 +2,8 @@
     <div class="itemHead">
         <h2>Video</h2>      
      </div>   
-     <div  *ngFor="let videoID of this.videos" class="item" >
+     <div  *ngFor="let item of this.response?.items" class="item" >
 
-        <iframe width="100%" height="100%" [src]="this.getEmbedUrl(videoID)" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="100%" [src]="this.getEmbedUrl(item.id.videoId) | safe" frameborder="0" allowfullscreen></iframe>
     </div>
 </div> 

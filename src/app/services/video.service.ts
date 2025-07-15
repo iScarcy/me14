@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { YoutubeSearchListResponse } from '../models/video/YoutubeSearchListResponse';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class VideoService {
 
   constructor(private _http: HttpClient) {}
 
-  getLatestVideos() {
-    return this._http.get<any>(this.apiUrl);
+  getVideos():Observable<YoutubeSearchListResponse> {
+    return this._http.get<YoutubeSearchListResponse>(this.apiUrl);
   }
 }
