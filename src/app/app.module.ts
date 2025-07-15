@@ -29,6 +29,7 @@ import { ImageSliderModule } from './shared/image-slider.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UtilityComponent } from './components/utility/utility.component';
 import { UtilityItemComponent } from './components/utility/utility-item/utility-item.component';
+import { VideoComponent } from './components/video/video.component';
 
 const INIT_ACTION = "@ngrx/store/init";
 
@@ -87,7 +88,7 @@ export const metaReducers: MetaReducer<IAppStateModel, any>[] = [localStorageSyn
     AppComponent,
     ToolbarComponent,
     SidenavComponent,  
-    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent, ThumbnailComponent, AlbumLightboxComponent, ImageSliderComponent, UtilityComponent, UtilityItemComponent
+    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent, ThumbnailComponent, AlbumLightboxComponent, ImageSliderComponent, UtilityComponent, UtilityItemComponent, VideoComponent
   ],
   imports: [
     BrowserModule,
