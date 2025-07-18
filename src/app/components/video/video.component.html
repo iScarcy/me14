@@ -1,9 +1,31 @@
 <div class="container">
     <div class="itemHead">
-        <h2>Video</h2>      
+        <h2>Video Messina 14</h2>      
      </div>   
      <div  *ngFor="let item of this.response?.items" class="item" >
 
-        <iframe width="100%" height="100%" [src]="this.getEmbedUrl(item.id.videoId) | safe" frameborder="0" allowfullscreen></iframe>
+        <mat-card appearance="outlined"  style="text-align: center;">
+            <mat-card-header>
+                <p>{{item.snippet.title}}</p>
+            </mat-card-header>
+        
+            
+            <mat-card-content >
+                <embed
+                    [src]="this.getEmbedUrl(item.id.videoId) | safe"
+                    wmode="transparent"
+                    type="video/mp4"
+                    width="100%" height="100%"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                    title="Keyboard Cat"
+                >
+            
+            </mat-card-content>  
+        </mat-card>
+        
+       
+         
+
     </div>
 </div> 

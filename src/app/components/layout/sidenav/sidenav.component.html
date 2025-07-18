@@ -14,7 +14,7 @@
    
       <mat-toolbar color="primary">
         <span>
-        <a [routerLink]="['']" > <img src="assets/img/me14.png"></a>
+        <a [routerLink]="['']" > <img src="{{logo}}" class="logo"></a>
         </span>
         <span class="example-spacer"></span>
         <button mat-button class="app-sidenav-toogle" (click)="drawer.toggle()" *ngIf="(isHandset$ |async)">

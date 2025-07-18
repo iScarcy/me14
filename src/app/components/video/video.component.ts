@@ -16,8 +16,10 @@ export class VideoComponent {
 
   ngOnInit() {
     this.service.getVideos().subscribe((data: YoutubeSearchListResponse) => {
-      data
+      
       this.response = data;
+
+      console.log("items:"+data.items.length);
     });
  
   }

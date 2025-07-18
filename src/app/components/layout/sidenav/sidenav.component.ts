@@ -13,6 +13,7 @@ import { baseHomePagePublicImageUrl} from '../../../app.constant';
   styleUrl: './sidenav.component.css'
 })
 export class SidenavComponent implements OnInit{
+[x: string]: any;
   
  
   
@@ -23,6 +24,8 @@ export class SidenavComponent implements OnInit{
 
   isHandset$: Observable<boolean> | undefined;
  
+ logo : string = baseHomePagePublicImageUrl + "me14.png";
+
   ngOnInit(): void {
     
      this.router.events.subscribe(() =>{
