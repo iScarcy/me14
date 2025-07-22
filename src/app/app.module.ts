@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material.module';
-import { ToolbarComponent } from './components/layout/toolbar/toolbar.component';
+ 
 import { SidenavComponent } from './components/layout/sidenav/sidenav.component';  
 import { MainContentComponent } from './components/layout/main-content/main-content.component';
 
@@ -31,6 +31,7 @@ import { UtilityComponent } from './components/utility/utility.component';
 import { UtilityItemComponent } from './components/utility/utility-item/utility-item.component';
 import { VideoComponent } from './components/video/video.component';
 import { SafePipe } from './pipes/SafePipe';
+ 
 
 const INIT_ACTION = "@ngrx/store/init";
 
@@ -86,10 +87,9 @@ export const metaReducers: MetaReducer<IAppStateModel, any>[] = [localStorageSyn
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ToolbarComponent,
+    AppComponent,    
     SidenavComponent,  
-    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent, ThumbnailComponent, AlbumLightboxComponent, ImageSliderComponent, UtilityComponent, UtilityItemComponent, VideoComponent, SafePipe 
+    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent, ThumbnailComponent, AlbumLightboxComponent, ImageSliderComponent, UtilityComponent, UtilityItemComponent, VideoComponent, SafePipe
   ],
   imports: [
     BrowserModule,
