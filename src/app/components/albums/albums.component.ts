@@ -34,10 +34,13 @@ export class AlbumsComponent implements OnInit {
 
     this._router.params.subscribe((p) =>{
       var branca = p["branca"];
+
        if(branca!="" && 
             (branca=="lc" || branca=="eg" || branca=="rs" || branca=="varie")
           ){
-            this.loadAlbums(branca);
+            this.brancaSelected = branca;
+            this.anno="";
+            this.loadAlbums(branca,this.anno);
           }
     }); 
      
@@ -46,10 +49,12 @@ export class AlbumsComponent implements OnInit {
  
  
    
-  onAnnoChange(event: any) {
-    /*
+  onAnnoChange() {
+    
+    console.log(this.anno);
+     
     let anno:string = this.anno;
-    let branca:string = this.brancaSelected;
+    let branca:string = this.brancaSelected !;
     console.log(anno+"_"+anno.length);
     
         
@@ -60,23 +65,18 @@ export class AlbumsComponent implements OnInit {
           this.loadAlbums(branca, anno);
          
       }
-    }*/
+    } 
   }
    
+ 
 
-  changeBranca(event: any):void{
-   
-  
-    
-  }
-
-  loadAlbums(branca:string){
+  loadAlbums(branca:string, anno:string){
    
     this._store.select(selectToken).subscribe((data) =>{
    
       if(data){
            console.log("load data")
-        this._store.dispatch(loadalbums({branca: branca, anno: "0", token:data}));
+        this._store.dispatch(loadalbums({branca: branca, anno: anno, token:data}));
          
          
        
