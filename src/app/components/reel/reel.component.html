@@ -1,0 +1,26 @@
+
+
+<div class="container">
+    <div class="itemHead">
+        <h2>Video Messina 14</h2>      
+     </div>   
+     <div  *ngFor="let item of this.posts" class="item" >
+
+        <mat-card appearance="outlined"  style="text-align: center;">
+            <mat-card-header>
+          
+            </mat-card-header>
+        
+            
+            <mat-card-content >
+              
+                 <iframe width="320" height="440" [src]="item | safe" frameborder="0"></iframe>
+   
+ 
+            </mat-card-content>  
+        </mat-card>
+       
+    </div>
+ 
+   
+</div> 

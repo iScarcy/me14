@@ -31,6 +31,7 @@ import { UtilityComponent } from './components/utility/utility.component';
 import { UtilityItemComponent } from './components/utility/utility-item/utility-item.component';
 import { VideoComponent } from './components/video/video.component';
 import { SafePipe } from './pipes/SafePipe';
+import { ReelComponent } from './components/reel/reel.component';
  
 
 const INIT_ACTION = "@ngrx/store/init";
@@ -89,7 +90,7 @@ export const metaReducers: MetaReducer<IAppStateModel, any>[] = [localStorageSyn
   declarations: [
     AppComponent,    
     SidenavComponent,  
-    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent, ThumbnailComponent, AlbumLightboxComponent, ImageSliderComponent, UtilityComponent, UtilityItemComponent, VideoComponent, SafePipe
+    MainContentComponent, AlbumsComponent, AlbumComponent, FotoComponent, ThumbnailComponent, AlbumLightboxComponent, ImageSliderComponent, UtilityComponent, UtilityItemComponent, VideoComponent, SafePipe, ReelComponent
   ],
   imports: [
     BrowserModule,

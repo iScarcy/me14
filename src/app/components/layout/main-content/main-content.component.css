@@ -11,8 +11,9 @@
   background-color: blue;
 }
 .item-d {
+  margin-top: 10px;
   grid-area: footer;
-  background-color: green;
+  background-color: white;
 }
 
 .container {
@@ -22,6 +23,10 @@
   grid-template-areas: 
     "header header header"
     "main main sidebar"
-    
+    "footer footer footer "
 }
 
+.grid-item{
+    float: left;
+   
+}
