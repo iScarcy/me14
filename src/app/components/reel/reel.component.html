@@ -4,7 +4,7 @@
     <div class="itemHead">
         <h2>Video Messina 14</h2>      
      </div>   
-     <div  *ngFor="let item of this.posts" class="item" >
+     <div  *ngFor="let post of this.video" class="item" >
 
         <mat-card appearance="outlined"  style="text-align: center;">
             <mat-card-header>
@@ -13,10 +13,16 @@
         
             
             <mat-card-content >
-              
-                 <iframe width="320" height="440" [src]="item | safe" frameborder="0"></iframe>
-   
- 
+                <embed
+                    [src]="post.medialUrl| safe"
+                    wmode="transparent"
+                    type="video/mp4"
+                    width="100%" height="100%"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                    title="Keyboard Cat"
+                >
+                
             </mat-card-content>  
         </mat-card>
        
