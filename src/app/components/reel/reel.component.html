@@ -6,7 +6,7 @@
      </div>   
      <div  *ngFor="let post of (this.feed$ |async )?.posts" class="item" >
 
-        <mat-card appearance="outlined"  style="text-align: center;"  *ngIf="post.mediaType=='VIDEO'">
+        <mat-card appearance="outlined"  style="text-align: center;" >
             <mat-card-header>
           
             </mat-card-header>
@@ -16,19 +16,23 @@
                 
                     
                     
-                    
-                    <div class="video-wrapper">
-                    <video width="{{post.sizes.small.width}}" height="{{post.sizes.small.height}}" controls>
-                        <source [src]="post.mediaUrl | safe" type="video/mp4"/> 
-                         
-                    </video>
-                    <div class="video-controls">
-                        <button data-media="play-pause"></button>
-                        <button data-media="mute-unmute"></button>
+                 <div  *ngIf="post.mediaType=='VIDEO'">
+                    <div class="video-wrapper" >
+                        <video width="{{post.sizes.small.width}}" height="{{post.sizes.small.height}}" controls>
+                            <source [src]="post.mediaUrl | safe" type="video/mp4"/> 
+                            
+                        </video>
+                        <div class="video-controls">
+                            <button data-media="play-pause"></button>
+                            <button data-media="mute-unmute"></button>
+                        </div>
                     </div>
-                </div>
 
                     <p>{{post.caption}}</p>
+                </div>
+                <div *ngIf="post.mediaType=='CAROUSEL_ALBUM'">
+                     <p>{{post.caption}}</p>       
+                </div>
             </mat-card-content>  
         </mat-card>
        

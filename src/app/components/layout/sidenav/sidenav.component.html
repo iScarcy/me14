@@ -37,7 +37,7 @@
               <button mat-menu-item>Pr. Educativi</button>
               <button mat-menu-item>Canzoni</button>
             </mat-menu>
-            <button mat-button>Notizie</button>
+            <button mat-button  [routerLink]="['/news']">Notizie</button>
             <button mat-button  [routerLink]="['/video']">Video</button>
             <button mat-button [matMenuTriggerFor]="menu">Gallery</button>
             <mat-menu #menu="matMenu">
