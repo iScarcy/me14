@@ -4,25 +4,31 @@
     <div class="itemHead">
         <h2>Video Messina 14</h2>      
      </div>   
-     <div  *ngFor="let post of this.video" class="item" >
+     <div  *ngFor="let post of (this.feed$ |async )?.posts" class="item" >
 
-        <mat-card appearance="outlined"  style="text-align: center;">
+        <mat-card appearance="outlined"  style="text-align: center;"  *ngIf="post.mediaType=='VIDEO'">
             <mat-card-header>
           
             </mat-card-header>
         
             
             <mat-card-content >
-                <embed
-                    [src]="post.medialUrl| safe"
-                    wmode="transparent"
-                    type="video/mp4"
-                    width="100%" height="100%"
-                    allow="autoplay; encrypted-media; picture-in-picture"
-                    allowfullscreen
-                    title="Keyboard Cat"
-                >
                 
+                    
+                    
+                    
+                    <div class="video-wrapper">
+                    <video width="{{post.sizes.small.width}}" height="{{post.sizes.small.height}}" controls>
+                        <source [src]="post.mediaUrl | safe" type="video/mp4"/> 
+                         
+                    </video>
+                    <div class="video-controls">
+                        <button data-media="play-pause"></button>
+                        <button data-media="mute-unmute"></button>
+                    </div>
+                </div>
+
+                    <p>{{post.caption}}</p>
             </mat-card-content>  
         </mat-card>
        

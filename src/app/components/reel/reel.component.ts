@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { InstagramService } from '../../services/instagram.service';
 import { Feed } from '../../models/feed/feed';
 import { IFeed } from '../../models/IFeed';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-reel',
@@ -14,28 +15,14 @@ export class ReelComponent implements OnInit{
 
   constructor(private _service:InstagramService) {}
   
-  feed:Feed | undefined;
+  feed$!: Observable<Feed>;
     
   video:IFeed[] | undefined
   
 
   ngOnInit(): void {
-    this._service.getFeeds().subscribe((data:Feed) => {
 
-      data.posts.forEach(post => {
-     
-        if(post.mediaType == "VIDEO"){
-            this.video?.push({
-              caption: post.prunedCaption,
-              medialUrl: post.mediaUrl,
-              data: post.timestamp
-            })
-        }
-      });        
-
-    });
-
-    console.log("Video x:"+this.video?.length);
+    this.feed$ = this._service.getFeeds();
 
   }
 
