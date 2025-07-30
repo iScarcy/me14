@@ -2,9 +2,9 @@
 
 <div class="container">
     <div class="itemHead">
-        <h2>Video Messina 14</h2>      
+        <h2>Notizie dal nostro mondo</h2>      
      </div>   
-     <div  *ngFor="let post of (this.feed$ |async )?.posts" class="item" >
+    <div  *ngFor="let post of (this.video)" class="item">
 
         <mat-card appearance="outlined"  style="text-align: center;" >
             <mat-card-header>
@@ -14,12 +14,9 @@
             
             <mat-card-content >
                 
-                    
-                    
-                 <div  *ngIf="post.mediaType=='VIDEO'">
-                    <div class="video-wrapper" >
-                        <video width="{{post.sizes.small.width}}" height="{{post.sizes.small.height}}" controls>
-                            <source [src]="post.mediaUrl | safe" type="video/mp4"/> 
+                     <div class="video-wrapper" >
+                        <video width="{{post.width}}" height="{{post.height}}" controls>
+                            <source [src]="post.url | safe" type="video/mp4"/> 
                             
                         </video>
                         <div class="video-controls">
@@ -27,12 +24,26 @@
                             <button data-media="mute-unmute"></button>
                         </div>
                     </div>
+                    <p>{{post.caption}}</p>       
+                
+            </mat-card-content>  
+        </mat-card>
+       
+    </div>
+ 
+     <div  *ngFor="let post of (this.carousels)" class="item">
 
-                    <p>{{post.caption}}</p>
-                </div>
-                <div *ngIf="post.mediaType=='CAROUSEL_ALBUM'">
-                     <p>{{post.caption}}</p>       
-                </div>
+        <mat-card appearance="outlined"  style="text-align: center;" >
+            <mat-card-header>
+          
+            </mat-card-header>
+        
+            
+            <mat-card-content >
+                
+                    <app-image-slider [slides]="post.foto"></app-image-slider>
+                    <p>{{post.caption}}</p>       
+                
             </mat-card-content>  
         </mat-card>
        

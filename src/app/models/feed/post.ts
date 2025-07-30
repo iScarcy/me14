@@ -1,3 +1,5 @@
+import { ISlide } from "../ISlide";
+
 export class Post {
   id!: string;
   timestamp!: string;
@@ -26,9 +28,12 @@ export class Size {
   width!: number;
 }
 
-export class PostChild {
+export class PostChild   {
+  
   id!: string;
   mediaType!: string;
   mediaUrl!: string;
   sizes!: Sizes;
+
+   
 }
