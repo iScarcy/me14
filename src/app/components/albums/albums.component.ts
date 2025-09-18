@@ -17,7 +17,7 @@ import { refreshtoken } from '../../shared/store/Login/login.actions';
 })
 export class AlbumsComponent implements OnInit {
  
-  branca:string = "";
+  
   anno : string = "";
   brancaSelected : string | null  = "";
   albums$ = new Observable<IAlbumFoto[]> ();
@@ -55,7 +55,7 @@ export class AlbumsComponent implements OnInit {
      
     let anno:string = this.anno;
     let branca:string = this.brancaSelected !;
-    console.log(anno+"_"+anno.length);
+    
     
         
     if(branca!=""){
@@ -77,7 +77,7 @@ export class AlbumsComponent implements OnInit {
       if(data){
            console.log("load data")
         this._store.dispatch(loadalbums({branca: branca, anno: anno, token:data}));
-         
+          this.brancaSelected = branca;
          
        
       }else{

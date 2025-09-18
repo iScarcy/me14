@@ -28,7 +28,7 @@ export class ReelComponent implements OnInit{
 
     this._service.getFeeds().subscribe((data)=>{
         data.posts.forEach(x => {
-         
+        
         switch(x.mediaType)
         {
             case "CAROUSEL_ALBUM":
@@ -36,6 +36,7 @@ export class ReelComponent implements OnInit{
                     foto: this.getSlide(x.children) ,
                     caption: x.caption,
                     data: x.timestamp
+                    
                   }   
                   this.carousels.push(carousel);
                   break;
