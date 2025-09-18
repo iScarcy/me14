@@ -6,11 +6,13 @@ import { AlbumComponent } from './components/albums/album/album.component';
 import { UtilityComponent } from './components/utility/utility.component';
 import { VideoComponent } from './components/video/video.component';
 import { ReelComponent } from './components/reel/reel.component';
+import { CocaComponent } from './components/coca/coca.component';
  
 const routes: Routes = [
   {path:"", component: MainContentComponent},
   {path:"video", component: VideoComponent},
   {path:"news", component: ReelComponent},
+  {path:"coca", component: CocaComponent},
   {path:"utility/:type", component: UtilityComponent},
   {path:"gallery/:branca", component: AlbumsComponent},
   {path:"gallery/:branca/:album", component: AlbumComponent},
