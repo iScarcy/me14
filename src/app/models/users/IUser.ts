@@ -9,6 +9,3 @@ export interface IUser {
   branca: string;
 }
 
-export interface ICapo extends IUser {
-  ruolo: string;
-}

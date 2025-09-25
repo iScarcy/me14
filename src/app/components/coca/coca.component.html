@@ -1,1 +1,72 @@
-<p>coca works!</p>
+<div class="container">
+    <div class="itemHead">
+        <h2>La Comunit&agrave; Capi del  Messina 14</h2>      
+        <img src="assets/images/coca.png" alt="coca" width="100" height="100">
+    </div>   
+     <div  class="item">
+        <mat-card appearance="outlined">
+            <mat-card-content>
+                <h3>Branca LC</h3>
+                <mat-list>
+                    <mat-list-item  *ngFor="let item of this.staffLC">
+                        <span matListItemTitle>{{item.nome}} {{item.cognome}}</span>
+                        <span matListItemLine>{{item.ruolo}}</span>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>  
+        </mat-card>
+    </div>
+    <div class="item">
+        <mat-card appearance="outlined">
+            <mat-card-content>
+                <h3>Branca EG</h3>
+                <mat-list>
+                    <mat-list-item  *ngFor="let item of this.staffEG">
+                        <span matListItemTitle>{{item.nome}} {{item.cognome}}</span>
+                        <span matListItemLine>{{item.ruolo}}</span>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>  
+        </mat-card>
+    </div>
+    <div class="item">
+        <mat-card appearance="outlined">
+            <mat-card-content>
+                <h3>Branca RS</h3>
+               <mat-list>
+                    <mat-list-item  *ngFor="let item of this.staffRS">
+                        <span matListItemTitle>{{item.nome}} {{item.cognome}}</span>
+                        <span matListItemLine>{{item.ruolo}}</span>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>  
+        </mat-card>
+    </div>
+    <div class="item">
+        <mat-card appearance="outlined">
+            <mat-card-content>
+                <h3>Gruppo</h3>
+                <mat-list>
+                    <mat-list-item  *ngFor="let item of this.staffGruppo">
+                        <span matListItemTitle>{{item.nome}} {{item.cognome}}</span>
+                        <span matListItemLine>{{item.ruolo}}</span>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>  
+        </mat-card>
+    </div>
+    <div class="item">
+        <mat-card appearance="outlined">
+            <mat-card-content>
+                <h3>A supporto della comunit&agrave; capi</h3>
+                <mat-list>
+                    <mat-list-item  *ngFor="let item of this.staffSupporto">
+                        <span matListItemTitle>{{item.nome}} {{item.cognome}}</span>
+                        
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>  
+        </mat-card>    
+    </div>
+
+</div>    
