@@ -20,17 +20,14 @@ export class httpInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(
             catchError(err => {
                 
- 
-                if ([401, 403].includes(err.status) ) {
+               
+                if ([0, 401, 403].includes(err.status) ) {
                     this._store.dispatch(refreshtoken())
                 }
                 
-                if(err.status == 0 && err.statusText == "Unknown Error"){
-                    this.refreshToken();
-                }
                
                 const error = err.error?.message || err.statusText;
-                console.error(err);
+                console.log(err);
                 return throwError(() => error);
             })
         );

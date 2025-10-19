@@ -48,7 +48,9 @@ export class LoginEffects {
           ofType(REFRESH_TOKEN),
           exhaustMap(() => {
             
-               
+            console.log("effetcsOut_");
+            console.log(domain_user);
+            console.log(secret_id);
             return this.service.refresh_token(domain_user, secret_id).pipe(
               
               map((resp) => {

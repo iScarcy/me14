@@ -9,6 +9,7 @@ import { getalbumslist, getlastalbumslist } from '../../../shared/store/Albums/a
 import { map, Observable } from 'rxjs';
 import { IAlbumFoto } from '../../../models/IAlbumFoto';
 import { baseHomePagePublicImageUrl } from '../../../app.constant';
+import { refreshtoken } from '../../../shared/store/Login/login.actions';
 
 @Component({
   selector: 'app-main-content',
@@ -42,11 +43,18 @@ export class MainContentComponent implements OnInit{
   constructor(private _store: Store<AppStateModel>){}
 
   ngOnInit(): void {
-    
+    console.log("MainContentComponent ngOnInit called");
       this._store.select(selectToken).subscribe((data) =>{
+          console.log("token ricevuto in main content: ", data);
           
+          if(data == null || data == undefined || data == ''){
+            this._store.dispatch(refreshtoken())
+            return;
+          }
+
           this.getLastAlbums("varie",data);
     
+
         }); 
     
   }

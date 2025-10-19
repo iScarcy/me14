@@ -34,7 +34,9 @@ export class AuthService {
 
   refresh_token(username: string, password:string):Observable<IUserLoginResponse>{
       
-    
+    console.log("refresh_token called");
+    console.log(username);  
+    console.log(password);
     var url: string = baseUsersApiUrl+"refresh"; 
     return this.httpEvents.patch<IUserLoginResponse>(url, {email:username, password: password}).pipe(
       
